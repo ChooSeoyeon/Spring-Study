@@ -12,7 +12,6 @@ import java.sql.Timestamp;
 @Entity
 @Data
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,4 +23,6 @@ public class User {
 
     @CreationTimestamp
     private Timestamp createDate;
+
 }
+
