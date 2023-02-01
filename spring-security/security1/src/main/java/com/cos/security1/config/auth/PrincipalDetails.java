@@ -34,7 +34,7 @@ public class PrincipalDetails implements UserDetails {
             @Override
             public String getAuthority() {
                 return user.getRole();
-            }
+            } // user.getRole()을 반환하고 싶은데 String이라서 타입 GrantedAuthority으로 만들어줌
         });
         return collect;
     }
