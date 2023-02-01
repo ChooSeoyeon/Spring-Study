@@ -35,3 +35,13 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/"); // 로그인 완료 시 메인 페이지로 감. 특정 페이지에서 로그인 요청하면 그 페이지로 돌려보내줌
     }
 }
+
+/*
+1. 구글 로그인 완료되면 구글서버에서 우리쪽으로 인증 되었다는 코드를 돌려줌
+    http://localhost:8080/login/oauth2/code/google
+        - 코드를 받기 위한 주소임
+        - oauth 클라이언트라는 라이브러리 쓸 땐 이 주소 고정임. 다른 주소 사용 불가능함
+        - 이에 대한 컨트롤러 주소 만들 필요 없음. 우리가 제어하는 게 아니고 라이브러리가 알아서 다 처리해줌
+2. 우린 이 코드를 받아서 accessToken을 요청함
+3. accessToken 받아서 사용자 대신에 서버가 구글서버에 사용자의 개인정보에 접근할 수 있는 권한 생김
+ */
