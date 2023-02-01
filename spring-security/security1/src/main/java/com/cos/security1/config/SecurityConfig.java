@@ -30,12 +30,12 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll() // 위에 주소가 아닌 건 전부 permitAll
                 .and()
                 .formLogin()
-                .loginPage("/loginForm")
+                .loginPage("/loginForm") // 인증필요하면 무조건 loginForm으로 이동
                 .loginProcessingUrl("/login") // login 주소가 호출이 되면 시큐리티가 낚아채서 대신 로그인 진행해줌 -> 컨트롤러에 안 만들어도 됨
                 .defaultSuccessUrl("/") // 로그인 완료 시 메인 페이지로 감. 특정 페이지에서 로그인 요청하면 그 페이지로 돌려보내줌
                 .and()
                 .oauth2Login()
-                .loginPage("/loginForm");
+                .loginPage("/loginForm"); // 구글 로그인이 완료된 뒤의 후처리가 필요함
     }
 }
 
