@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### yml ###
-application-oauth.properties
+application-oauth.yml
