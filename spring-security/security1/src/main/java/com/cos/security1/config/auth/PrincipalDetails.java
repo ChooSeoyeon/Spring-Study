@@ -9,6 +9,7 @@ package com.cos.security1.config.auth;
 // Security Session => Authentication => UserDetails(PrincipalDetails)
 
 import com.cos.security1.model.User;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 // import org.springframework.security.core.userdetails.User; -> 이 녀석 떄문에 getRole 못썼음. model의 User를 써야하는데 시큐리티 userdetails의 User를 씀
 
@@ -17,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Data
 public class PrincipalDetails implements UserDetails {
 
     private User user; //콤포지션
