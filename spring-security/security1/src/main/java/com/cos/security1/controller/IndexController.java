@@ -27,23 +27,30 @@ public class IndexController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("/test/login")
-    public @ResponseBody String testLogin(Authentication authentication, @AuthenticationPrincipal PrincipalDetails userDetails) { // DI(의존성 주입)
+    public @ResponseBody String testLogin(Authentication authentication,
+                                          @AuthenticationPrincipal PrincipalDetails userDetails) { // DI(의존성 주입)
 
+        // 방법1
         System.out.println("/test/login==========================");
-        PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
+        PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal(); // 구글로그인하고 들어오면 오류 남 -> test/oauth/login 따로 만들어줘야함
         System.out.println("authentication:" + principalDetails.getUser());
 
+        // 방법2
         System.out.println(userDetails.getUser());
         return "세션 정보 확인하기";
     }
 
     @GetMapping("/test/oauth/login")
-    public @ResponseBody String testLogin(Authentication authentication) { // DI(의존성 주입)
+    public @ResponseBody String testLogin(Authentication authentication,
+                                          @AuthenticationPrincipal OAuth2User oauth) { // DI(의존성 주입)
 
+        // 방법1
         System.out.println("/test/oauth/login==========================");
         OAuth2User oauth2User = (OAuth2User) authentication.getPrincipal();
         System.out.println("authentication:" + oauth2User.getAttributes());
 
+        // 방법2
+        System.out.println("oauth2User:"+oauth.getAttributes());
         return "OAuth 세션 정보 확인하기";
     }
 

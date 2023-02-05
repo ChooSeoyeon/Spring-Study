@@ -14,12 +14,14 @@ import org.springframework.security.core.GrantedAuthority;
 // import org.springframework.security.core.userdetails.User; -> 이 녀석 떄문에 getRole 못썼음. model의 User를 써야하는데 시큐리티 userdetails의 User를 씀
 
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 @Data
-public class PrincipalDetails implements UserDetails {
+public class PrincipalDetails implements UserDetails, OAuth2User {
 
     private User user; //콤포지션
 
@@ -77,5 +79,15 @@ public class PrincipalDetails implements UserDetails {
         // usre model에 loginDate같은 필드 필요함
         // 현재시간-로긴시간 => 1년 초과하면 return false;
         return true;
+    }
+
+    @Override
+    public Map<String, Object> getAttributes() {
+        return null;
+    }
+
+    @Override
+    public String getName() {
+        return null;
     }
 }
