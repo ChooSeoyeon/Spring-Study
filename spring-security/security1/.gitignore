@@ -34,3 +34,4 @@ build/
 
 ### yml ###
 application-oauth.yml
+application-data.yml
