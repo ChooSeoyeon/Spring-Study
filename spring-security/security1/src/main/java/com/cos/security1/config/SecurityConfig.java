@@ -1,6 +1,6 @@
 package com.cos.security1.config;
 
-import com.cos.security1.config.oauth.PrincipalOauth2UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.cos.security1.config.oauth.PrincipalOauth2UserService;
 
 /*
 1. 코드 받기(인증) 2. 엑세스 토큰(권한) 3. 사용자 프로필 정보를 가져옴
@@ -26,7 +27,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
     // 해당 메서드의 리턴되는 오브젝트를 IoC로 등록해줌
     @Bean
-    public BCryptPasswordEncoder encodePwd(){
+    public BCryptPasswordEncoder encodePwd() {
         return new BCryptPasswordEncoder();
     }
 
